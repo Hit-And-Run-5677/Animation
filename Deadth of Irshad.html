@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css" media="all">
+        *{
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+            font-family: arial;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+        }
+        .circle{
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            border: 40px solid #222;
+        }
+        .movingCircle, .movingCircle2{
+            position: absolute;
+            width: 200px;
+            height: 40px;
+            top: 50%; left: 0;
+            margin-top: -20px;
+
+            animation: rotate 7.5s linear infinite;
+        }
+        @keyframes rotate{
+            0%{
+                z-index: 10;
+                transform: rotate(0deg);
+            }
+            21%{
+                z-index: 10;
+            }
+            22%{
+                z-index: -10;
+                transform: rotate(180deg);
+            }
+            65%{
+                z-index: -10;
+                transform: rotate(180deg);
+            }
+            66%{
+                z-index: 10;
+                transform: rotate(180deg);
+            }
+            99%{
+                z-index: 10;
+            }
+            100%{
+                z-index: 10;
+                display: block;
+                transform: rotate(360deg);
+            }
+        }
+        .movingCircle::before, .movingCircle2::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 40px;
+            width: 40px;
+            background: white;
+            border-radius: 50%;
+        }
+        .c2{
+            margin-left: -40px;
+        }
+        .movingCircle2{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -20px;
+            animation: rotate2 7.5s -2.5s linear infinite;
+        }
+        @keyframes rotate2{
+            0%{
+                z-index: -10;
+            }
+            54%{
+                z-index: -10;
+            }
+            55%{
+                z-index: 10;
+                transform: rotate(0deg);
+            }
+            99%{
+                z-index: 10;
+            }
+            100%{
+                z-index: -10;
+                display: block;
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+    <div class="movingCircle"></div>
+    <div class="movingCircle2"></div>
+    <div class="circle c2"></div>
+
+</body>
+</html>
